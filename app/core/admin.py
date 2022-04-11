@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.contrib import admin as default_admin
-from django.utils.translation import gettext as _
 
 
 class AdminSite(default_admin.AdminSite):
