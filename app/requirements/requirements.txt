@@ -1,0 +1,15 @@
+# System libraries
+envparse==0.2.0
+psycopg2-binary==2.9.2
+
+# Django related libraries
+Django==3.2
+djangorestframework==3.13.1
+djangorestframework-simplejwt==5.0.0
+drf-yasg==1.20.0
+django-cors-headers==3.11.0
+django-crequest==2018.5.11
+
+# Datetime related (without version, always fetch latest)
+python-dateutil
+pytz

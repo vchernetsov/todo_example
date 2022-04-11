@@ -1,0 +1,18 @@
+[flake8]
+ignore =
+    E722,
+    W503,  # is not pep-8 compliant
+    B001,  # bug-bear, it is not your business
+    PIE786,  # and not yours, pie
+    SIM106,  # just not applicable
+    N813,  # useless
+    F403, F405,  # it is not your business! I want all via "from ... import *"!
+    N400,  # remove when vaiables will be established
+    FS003 # use r-string for regex
+
+exclude =
+    migrations
+max-line-length = 120
+# max-complexity = 18
+ensure-newline-before-comments = True
+

@@ -1,0 +1,43 @@
+version: "3.8"
+
+volumes:
+  postgres_data: {}
+
+services:
+  app: &app
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile.local
+      args:
+        DEBIAN_FRONTEND: noninteractive
+        BASE_DIR: /usr/src/app/
+    volumes:
+      - ./app/:/usr/src/app/:rw
+    env_file:
+      - ./envs/default/django
+      - ./envs/local/django
+      - ./envs/local/postgres
+    ports:
+      - "127.0.0.1:8000:8000"
+    command: ./manage.py runserver 0.0.0.0:8000
+    healthcheck:
+        test: curl -s -XGET 'http://app:8000/admin/'
+        interval: 10s
+        timeout: 3s
+        retries: 10
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./envs/local/postgres
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+        test:  pg_isready
+        interval: 10s
+        timeout: 3s
+        retries: 10
