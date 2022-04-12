@@ -1,0 +1,15 @@
+FROM python:3.9.0
+
+ARG ENV_TYPE
+ARG DEBIAN_FRONTEND
+ARG BASE_DIR
+
+WORKDIR $BASE_DIR
+ADD ./app/ $BASE_DIR
+
+RUN apt-get update
+RUN apt-get install -y apt-utils postgresql-client gettext
+# RUN apt-get install -y net-tools telnet
+RUN pip install --upgrade pip setuptools
+RUN pip install -r ./requirements/requirements.txt
+RUN pip install -r ./requirements/development.txt

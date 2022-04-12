@@ -1,0 +1,4 @@
+# General
+# ------------------------------------------------------------------------------
+SECRET_KEY=Lk5dzniZJ9k3qx5bA2jcb0sbNyXG91Vl9FCgtV3WrnDPMVslDwEt0sod4nCnz6JWif9beRUHuD6OMYTJivvK8OSKtyWoX8QWHkLt
+DEBUG=True
