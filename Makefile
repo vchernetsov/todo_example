@@ -35,7 +35,7 @@ bash:
 	@docker-compose -f local.yml exec app bash
 
 test:
-	docker-compose -f local.yml exec app ./manage.py test
+	docker-compose -f local.yml exec app ./manage.py test user todo
 
 # If the first argument is "logs"...
 ifeq (logs,$(firstword $(MAKECMDGOALS)))
